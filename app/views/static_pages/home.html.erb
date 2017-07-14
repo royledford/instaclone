@@ -1,4 +1,12 @@
 <% title "InstaClone | Home" %>
 
-    <h1>Sample InstaClone app</h1>
-    <p>This is the home page</p>
+<div class="center jumbotron">
+  <h1>Sample InstaClone app</h1>
+
+  <h2>This is the home page for the InstaClone app</h2>
+
+  <%= link_to "Sign up now!", '#', class: "btn btn-lg btn-primary" %>
+</div>
+
+<%= link_to image_tag("rails.png", alt: "Rails logo"),
+            'http://rubyonrails.org/' %>
