@@ -1,35 +1,53 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>First name:</strong>
-  <%= @user.first_name %>
-</p>
+<div class="container">
+  <div class="columns">
 
-<p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
-</p>
+    <div class="one-fourth column">
+      <aside>
+        <h1>
+          <%= gravatar_for @user %>
+          <p><%= @user.username %></p>
+        </h1>
+      </aside>
+    </div>
 
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
+    <div class="three-fourths column">
 
-<p>
-  <strong>Hashed password:</strong>
-  <%= @user.password_digest %>
-</p>
+      <p>
+        <strong>First name:</strong>
+        <%= @user.first_name %>
+      </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+      <p>
+        <strong>Last name:</strong>
+        <%= @user.last_name %>
+      </p>
 
-<p>
-  <strong>Joined:</strong>
-  <%= time_ago_in_words(@user.created_at) %>
-</p>
+      <p>
+        <strong>Username:</strong>
+        <%= @user.username %>
+      </p>
+
+      <p>
+        <strong>Hashed password:</strong>
+        <%= @user.password_digest %>
+      </p>
+
+      <p>
+        <strong>Email:</strong>
+        <%= @user.email %>
+      </p>
+
+      <p>
+        <strong>Joined:</strong>
+        <%= time_ago_in_words(@user.created_at) %>
+      </p>
 
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+      <%= link_to 'Edit', edit_user_path(@user) %> |
+      <%= link_to 'Back', users_path %>
+
+    </div>
+  </div>
+</div>
