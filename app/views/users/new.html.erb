@@ -1,5 +1,43 @@
-<h1>New User</h1>
+<div class="user-signup">
 
-<%= render 'form', user: @user %>
+  <div class="sub-head">
+    <h2>Sign Up</h1>
+  </div>
+
+  <%= form_for(@user) do |f| %>
+
+    <dl class="form-group">
+
+      <dl>
+        <!-- <dt><%= f.label :username %></dt> -->
+        <dd><%= f.text_field :username, class: "form-control input-lg", placeholder: "Username" %></dd>
+
+        <!-- <%= f.label :first_name %> -->
+        <dd><%= f.text_field :first_name, class: "form-control input-lg", placeholder: "First Name" %></dd>
+
+        <!-- <%= f.label :last_name %> -->
+        <dd><%= f.text_field :last_name, class: "form-control input-lg", placeholder: "Last Name" %></dd>
+      </dl>
+
+      <dl>
+        <!-- <%= f.label :email %> -->
+        <dd><%= f.text_field :email, class: "form-control input-lg", placeholder: "Email" %></dd>
+      </dl>
+
+      <dl>
+        <!-- <%= f.label :password %> -->
+        <dd><%= f.password_field :password, class: "form-control input-lg", placeholder: "Password" %></dd>
+
+        <!-- <%= f.label :password_confirmation, "Confirmation" %> -->
+        <dd><%= f.password_field :password_confirmation, class: "form-control input-lg", placeholder: "Confirm Password" %></dd>
+      </dl>
+
+      <%= f.submit "Sign up", class: "btn btn-block" %>
+
+    </dl>
+
+  <% end %>
+
+</div>
 
 <%= link_to 'Back', users_path %>
