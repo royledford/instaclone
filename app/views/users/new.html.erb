@@ -4,8 +4,8 @@
     <h2>Sign Up</h1>
   </div>
 
-  <%= form_for(@user) do |f| %>
-
+  <%= form_for(@user, url: signup_path) do |f| %>
+    <%= render 'shared/error_messages' %>
     <dl class="form-group">
 
       <dl>
