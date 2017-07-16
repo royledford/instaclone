@@ -5,7 +5,14 @@
         <li><%= link_to "sample logo", root_path, id: "logo" %></li>
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "Help", help_path %></li>
-        <li><%= link_to "Log in", login_path %></li>
+
+        <% if logged_in? %>
+          <li><%= link_to 'Profile', current_user %></li>
+        <% else %>
+          <li><%= link_to "Log in", login_path %></li>
+        <% end %>
+
+
         <li><%= link_to "Sign Up", signup_path %></li>
       </ul>
     </div>
