@@ -1,0 +1,34 @@
+<% provide(:title, "Log in") %>
+
+<div class="login">
+
+  <div class="sub-head">
+    <h2>Log in to <%= Rails.application.class.parent %></h1>
+  </div>
+
+  <%= form_for(:session, url: login_path) do |f| %>
+
+    <dl class="form-group">
+
+      <dl>
+        <dd><%= f.text_field :username, class: "form-control input-lg", placeholder: "Username" %></dl>
+        <dd><%= f.password_field :password, class: "form-control input-lg", placeholder: "Password" %></dl>
+          <div  class="remember">
+            <label>
+              <input type="checkbox" name="remember" value="unchecked">
+              Remember me &middot; Forgot password?
+            </label>
+          </div
+      </dl>
+
+        <%= f.submit "Log in", class: "btn btn-block" %>
+
+    </dl>
+
+  <% end %>
+
+  <div class="signup-cta">
+    <p>Don't have an account? <%= link_to "Sign up &raquo;".html_safe, signup_path %></p>
+  </div>
+
+</div>
