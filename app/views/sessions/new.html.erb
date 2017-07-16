@@ -15,7 +15,7 @@
         <dd><%= f.password_field :password, class: "form-control input-lg", placeholder: "Password" %></dl>
           <div  class="remember">
             <label>
-              <input type="checkbox" name="remember" value="unchecked">
+              <%= f.check_box :remember_me %>
               Remember me &middot; Forgot password?
             </label>
           </div
