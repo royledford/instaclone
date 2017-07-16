@@ -13,9 +13,9 @@ Rails.application.routes.draw do
   resources :users
 
   # handle login sessions
-  get 'login',   to: 'sessions#new'
-  get 'login',   to: 'sessions#create'
-  get 'login',   to: 'sessions#destroy'
+  get '/login',   to: 'sessions#new'
+  post '/login',   to: 'sessions#create'
+  delete '/login',   to: 'sessions#destroy'
 
 
   resources :posts
