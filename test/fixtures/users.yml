@@ -1,13 +1,20 @@
 # empty
 
 one:
-  first_name: Jimmy
-  last_name: Jim
-  username: Jimbo
-  email: jimbo@jimmy.com
+  first_name: sid
+  last_name: vicious
+  username: sidv
+  email: sid@example.com
 
 two:
-  first_name: Davy
-  last_name: Dave
-  username: Davo
-  email: Davo@davy.com
+  first_name: malcolm
+  last_name: mclaren
+  username: mm
+  email: mm@example.com
+
+jrotten:
+  first_name: John
+  last_name: Rotten
+  username: jrotten
+  email: john@example.com
+  password_digest: <%= User.digest('password') %>
