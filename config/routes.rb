@@ -8,14 +8,14 @@ Rails.application.routes.draw do
   get '/about',  to: 'static_pages#about'
 
   # Users
-  get '/signup', to: 'users#new'
+  get '/signup',  to: 'users#new'
   post '/signup', to: 'users#create'
   resources :users
 
   # handle login sessions
-  get '/login',   to: 'sessions#new'
-  post '/login',   to: 'sessions#create'
-  delete '/login',   to: 'sessions#destroy'
+  get '/login',       to: 'sessions#new'
+  post '/login',      to: 'sessions#create'
+  delete '/logout',   to: 'sessions#destroy'
 
 
   resources :posts
