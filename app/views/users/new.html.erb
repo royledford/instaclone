@@ -6,7 +6,8 @@
 
   <%= form_for(@user, url: signup_path) do |f| %>
     <%= render 'shared/error_messages' %>
-    <dl class="form-group">
+
+    <div class="form-group">
 
       <dl>
         <dd><%= f.text_field :username, class: "form-control input-lg", placeholder: "Username" %></dd>
@@ -21,11 +22,20 @@
       <dl>
         <dd><%= f.password_field :password, class: "form-control input-lg", placeholder: "Password" %></dd>
         <dd><%= f.password_field :password_confirmation, class: "form-control input-lg", placeholder: "Confirm Password" %></dd>
+        <div  class="remember">
+          <label>
+            <input type="checkbox" name="remember" value="unchecked">
+            Remember me &middot; Forgot password?
+          </label>
+        </div
       </dl>
 
-      <%= f.submit "Sign up", class: "btn btn-block" %>
+<dl>
 
+      <%= f.submit "Sign up", class: "btn btn-block" %>
     </dl>
+
+    </div>
 
   <% end %>
 
