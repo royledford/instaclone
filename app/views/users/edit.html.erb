@@ -1,8 +1,46 @@
-<% title "InstaClone | Create Profile" %>
+<% title "InstaClone | Edit Profile" %>
 
-<h1>Editing User</h1>
+<div class="user-edit-profile">
 
-<%= render 'form', user: @user %>
+  <div class="profile-info">
+    <div class="profile-pic">
+      <a href="http://gravatar.com/emails" target="_blank" rel="noopener"><%= gravatar_for @user %></a>
+    </div>
+    <h2><%= @user.username %></h2>
+  </div>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+  <%= form_for(@user) do |f| %>
+    <%= render 'shared/error_messages' %>
+
+    <div class="form-group">
+
+      <dl>
+        <dt><%= f.label :username %> </dt>
+        <dd><%= f.text_field :username, class: "form-control input-lg", placeholder: "Username" %></dd>
+
+        <dt> <%= f.label :first_name %></dt>
+        <dd><%= f.text_field :first_name, class: "form-control input-lg", placeholder: "First Name" %></dd>
+
+        <dt><%= f.label :last_name %> </dt>
+        <dd><%= f.text_field :last_name, class: "form-control input-lg", placeholder: "Last Name" %></dd>
+      </dl>
+
+      <dl>
+        <dt><%= f.label :email %> </dt>
+        <dd><%= f.text_field :email, class: "form-control input-lg", placeholder: "Email" %></dd>
+      </dl>
+
+      <dl>
+        <dd><%= f.password_field :password, class: "form-control input-lg", placeholder: "Password" %></dd>
+        <dd><%= f.password_field :password_confirmation, class: "form-control input-lg", placeholder: "Confirm Password" %></dd>
+      </dl>
+
+    <dl>
+      <%= f.submit "Save Changes", class: "btn btn-block" %>
+    </dl>
+
+    </div>
+
+  <% end %>
+
+</div>
