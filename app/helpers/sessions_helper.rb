@@ -38,6 +38,10 @@ module SessionsHelper
     end
   end
 
+  def current_user?(user)
+    user == current_user
+  end
+
   def logged_in?
     # debugger
     !current_user.nil?
@@ -49,5 +53,20 @@ module SessionsHelper
     @current_user = nil
   end
 
+#----------------------------------------------------------------
+# Used to help with redirects when a user is not logged in tries
+# to edit a path that requires authentication
+#----------------------------------------------------------------
+
+  # redirect to stored location or default
+  def redirect_back_or(default)
+    redirect_to(session[:forarding_url] || default)
+    session.delete(:forwarding_url)
+  end
+
+  # Store the url tring to be accessed
+  def store_location
+    session[:forwarding_url] = request.original_url if request.get?
+  end
 
 end

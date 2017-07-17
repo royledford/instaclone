@@ -19,7 +19,14 @@
     <% end %>
   </div>
 
-   <!-- <%= logged_in? %> -->
+   Logged in: <%= logged_in? %> Username:
+   <% if logged_in? %>
+    <%= current_user.username %>
+  <% else %>
+    nil
+  <% end %>
+
+
 
     <%= yield %>
 
