@@ -1,49 +1,102 @@
 <% title "InstaClone | Users" %>
 
 <div class="container">
-  <div class="columns">
+  <div class="user-show">
 
-    <div class="one-fourth column">
-      <aside>
-        <h1>
-          <%= gravatar_for @user %>
-          <p><%= @user.username %></p>
-        </h1>
-      </aside>
+    <div class="columns">
+      <div class="one-third column">
+        <aside>
+          <h1>
+            <%= gravatar_for @user %>
+          </h1>
+        </aside>
+      </div>
+
+      <div class="two-thirds column">
+        <div class="profile">
+          <h1><%= @user.username %></h1>
+          <div class="button">
+            <%= link_to 'Edit Profile', edit_user_path(@user), class: "btn" %>
+          </div>
+          <div class="button">
+            <%= link_to 'Log out', logout_path, method: :delete, class: "btn" %>
+          </div>
+        </div>
+
+        <div class="follow">
+          <ul>
+            <li>
+              <span>25</span>
+              Posts</li>
+            <li>
+              <span>35</span>
+              Followers</li>
+            <li>
+              <span>45</span>
+              Following</li>
+          </ul>
+        </div>
+
+        <div class="name">
+          <p><%= @user.full_name %></p>
+        </div>
+
+      </div>
     </div>
+    <!-- columns -->
+    <!-- images -->
+    <div class="grid-wrapper">
 
-    <div class="three-fourths column">
+      <div class="image-card">
+        <div class="card-thumb">
+          <a href="path-to-the-image" style="background-image: url(<%= asset_url('grid1.png') %>)" class="card-thumb"></a>
+        </div>
+        <div class="icons">
+          <p>
+            <span class="stats"><i class="fa fa-comment" aria-hidden="true"></i> 3&nbsp;</span>
+            <span class="stats"><i class="fa fa-heart" aria-hidden="true"></i> 5</span>
+          </p>
+        </div>
+      </div>
 
-      <p>
-        <strong>First name:</strong>
-        <%= @user.first_name %>
-      </p>
+      <div class="image-card">
+        <div class="card-thumb">
+          <a href="path-to-the-image" style="background-image: url(<%= asset_url('grid2.png') %>)" class="card-thumb"></a>
+        </div>
+        <div class="icons">
+          <p>
+            <i class="fa fa-comment" aria-hidden="true"></i> 3&nbsp;
+            <i class="fa fa-heart" aria-hidden="true"></i> 5
+          </p>
+        </div>
+      </div>
 
-      <p>
-        <strong>Last name:</strong>
-        <%= @user.last_name %>
-      </p>
+      <div class="image-card">
+        <div class="card-thumb">
+          <a href="path-to-the-image" style="background-image: url(<%= asset_url('grid3.png') %>)" class="card-thumb"></a>
+        </div>
+        <div class="icons">
+          <p>
+            <i class="fa fa-comment" aria-hidden="true"></i> 3&nbsp;
+            <i class="fa fa-heart" aria-hidden="true"></i> 5
+          </p>
+        </div>
+      </div>
 
-      <p>
-        <strong>Username:</strong>
-        <%= @user.username %>
-      </p>
-
-      <p>
-        <strong>Email:</strong>
-        <%= @user.email %>
-      </p>
-
-      <p>
-        <strong>Joined:</strong>
-        <%= time_ago_in_words(@user.created_at) %>
-      </p>
-
-
-      <%= link_to 'Log out', logout_path, method: :delete %> |
-      <%= link_to 'Edit Profile', edit_user_path(@user) %> |
-      <%= link_to 'Back', users_path %>
+      <div class="image-card">
+        <div class="card-thumb">
+          <a href="path-to-the-image" style="background-image: url(<%= asset_url('grid4.png') %>)" class="card-thumb"></a>
+        </div>
+        <div class="icons">
+          <p>
+            <i class="fa fa-comment" aria-hidden="true"></i> 3&nbsp;
+            <i class="fa fa-heart" aria-hidden="true"></i> 5
+          </p>
+        </div>
+      </div>
 
     </div>
   </div>
+  <!-- user-show -->
 </div>
+<!-- container -->

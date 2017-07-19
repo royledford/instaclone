@@ -30,6 +30,10 @@ class User < ApplicationRecord
     SecureRandom.urlsafe_base64
   end
 
+  def self.name_formatted
+    @user.first_name + ' ' + @user.last_name
+  end
+
   def remember
     self.remember_token = User.new_token
     update_attribute(:remember_digest, User.digest(remember_token))
@@ -45,5 +49,12 @@ class User < ApplicationRecord
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
 
+  def full_name
+    if first_name.blank? && last_name.blank?
+      'No name provided.'
+    else
+      "#{ first_name.titleize } #{ last_name.titleize }".strip
+    end
+  end
 
 end

@@ -1,0 +1,93 @@
+.user-show
+  border: 1px
+
+  aside
+    text-align: center
+
+  .profile
+    display: flex
+    margin-bottom: 1.7em
+
+    .button
+      margin-left: 1em
+      margin-top: auto
+      margin-bottom: auto
+
+  .follow
+    display: inline
+
+    ul
+      list-style-type: none
+      margin-bottom: 1em
+
+    li
+      display: inline
+      margin-right: 2em
+
+    span
+      font-weight: 600
+
+  .name
+    font-weight: 600
+    letter-spacing: 1px
+
+  .grid-wrapper
+    margin-top: 4em
+    margin-left: auto
+    margin-right: auto
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    width: 770px
+
+    .image-card
+      position: relative
+      justify-content: center
+      margin: 0
+      padding: 0
+      margin-right: 10px
+      margin-bottom: 10px
+      height: 250px
+      width: 250px
+      background-color: black
+      overflow: hidden
+
+      .card-thumb
+        position: relative
+        display: block
+        height: 250px
+        background:
+          size: cover
+        overflow: hidden
+
+      .icons p
+        color: white
+        font-weight: bold
+        font-size: 1.3em
+
+      .icons
+        text-align: center
+        pointer-events: none
+        transition: all 200ms ease-in-out
+
+    .image-card:hover .icons
+      transform: translate(0%, -150px)
+
+    .card-thumb:hover
+      opacity: 0.75
+
+    .image-card:nth-of-type(3n)
+      margin-right: 0
+
+
+    // // a
+    // //   margin: 0
+    // //   text-decoration: none
+    //   // height: 250
+    // //   display: inline-block
+    //
+    // a:nth-of-type(3n)
+    //   margin-right: 0
+    //
+    // a:hover
+    //   opacity: .75
