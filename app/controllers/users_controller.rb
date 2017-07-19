@@ -1,12 +1,16 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :logged_in_user, only: [:edit, :update]
+  # Only logged in users can edit/update a profile page
+  # TODO: Remove the :index for production
+  before_action :logged_in_user, only: [:index, :edit, :update]
+  # Users can only edit their own profile page
   before_action :correct_user, only: [:edit, :update]
+  before_action :admin_user, only: [:destroy]
 
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = User.paginate(page: params[:page])
   end
 
   # GET /users/1
@@ -57,7 +61,6 @@ class UsersController < ApplicationController
     @user.destroy
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
@@ -86,5 +89,7 @@ class UsersController < ApplicationController
       redirect_to(root_url) unless current_user?(@user)
     end
 
-
+    def admin_user
+      redirect_to(root_url) unless current_user.admin?
+    end
 end
