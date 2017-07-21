@@ -9,6 +9,8 @@ class AccountActivationsController < ApplicationController
     else
       flash[:danger] = "Invalid activation. Please check your email for the correct link."
       redirect_to login_path
+    end
+
   end
 
 
