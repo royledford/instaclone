@@ -17,7 +17,8 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
-    redirect_to root_url and Return unless @user.activated?
+    # Email activation code, not working
+    # redirect_to root_url and Return unless @user.activated?
   end
 
   # GET /users/new
@@ -38,10 +39,14 @@ class UsersController < ApplicationController
     # respond_to do |format|
       if @user.save
         @user.send_activation_email
-        flash[:info] = "We sent you an email, please follow the link to complete
-                        your account setup."
-        redirect_to login_path
-        # log_in @user
+        # Email activation of account code.
+        # not currently working
+        # flash[:info] = "We sent you an email, please follow the link to complete
+        #                 your account setup."
+        # redirect_to login_path
+        log_in @user
+        redirect_to @user
+        flash[:notice] =  'Welcome to Instaclone.'
         # format.html { redirect_to @user, notice: 'Welcome to Instaclone.' }
       else
         render :new
