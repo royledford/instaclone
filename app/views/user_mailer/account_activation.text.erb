@@ -1,6 +1,6 @@
 Hi <%= @user.full_name %>
 
-There is one final step to complete your <%= @user.username %> account at <%= Util.appname %>.
+There is one final step to complete your <%= @user.username %> account at InstaClone.
 It's simple, just click the link below :)
 
 <%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
