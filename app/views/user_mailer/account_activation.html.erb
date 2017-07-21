@@ -1,0 +1,6 @@
+<h1>One last step...</h1>
+
+<p>Complete your <strong><%= @user.username %></strong> account at <%= Util.appname %>.</p>
+<p>It's simple, just click the link below :)</p>
+
+<%= link_to "Activate", edit_account_activation_url(@user.activation_token, email: @user.email) %>

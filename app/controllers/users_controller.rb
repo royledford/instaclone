@@ -10,12 +10,14 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.paginate(page: params[:page])
+    @users = User.where(activated: true).paginate(page: params[:page])
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
+    @user = User.find(params[:id])
+    redirect_to root_url and Return unless @user.activated?
   end
 
   # GET /users/new
@@ -33,14 +35,18 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
-    respond_to do |format|
+    # respond_to do |format|
       if @user.save
-        log_in @user
-        format.html { redirect_to @user, notice: 'Welcome to Instaclone.' }
+        @user.send_activation_email
+        flash[:info] = "We sent you an email, please follow the link to complete
+                        your account setup."
+        redirect_to login_path
+        # log_in @user
+        # format.html { redirect_to @user, notice: 'Welcome to Instaclone.' }
       else
-        format.html { render :new }
+        render :new
       end
-    end
+    # end
   end
 
   # PATCH/PUT /users/1

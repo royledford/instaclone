@@ -30,7 +30,7 @@ module SessionsHelper
     elsif (user_id = cookies.signed[:user_id])
       # User is not logged in, get from db
       user = User.find_by(id: user_id)
-      if user && user.authenticated?(cookies{:remember_token})
+      if user && user.authenticated?(:remember, cookies{:remember_token})
         # User found in db and has a remember set = true
         login user
         @current_user = user

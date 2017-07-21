@@ -10,16 +10,20 @@ User.create!(username: "bluesixty",
              last_name: "ledford",
              email: "bluesixty@gmail.com",
              password: "password",
-             password_confirmation: "password"
-             admin: true)
+             password_confirmation: "password",
+             admin: true,
+             activated: true,
+             activated_at: Time.zone.now)
 
 User.create!(username: "jrotten",
             first_name: "john",
             last_name: "rotten",
             email: "j@rotten.com",
             password: "password",
-            password_confirmation: "password"
-            admin: false)
+            password_confirmation: "password",
+            admin: false,
+            activated: true,
+            activated_at: Time.zone.now)
 
 99.times do |n|
   name = Faker::Name.first_name + Faker::Name.last_name
@@ -32,5 +36,7 @@ User.create!(username: "jrotten",
                last_name: last_name,
                email: email,
                password:              password,
-               password_confirmation: password)
+               password_confirmation: password,
+               activated: true,
+               activated_at: Time.zone.now)
 end
