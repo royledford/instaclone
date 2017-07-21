@@ -7,7 +7,7 @@ class UserMailer < ApplicationMailer
   #
   def account_activation(user)
     @user = user
-    mail to: user.email, subject: "Confirm your #{Util.appname} account, #{user.full_name}."
+    mail to: user.email, subject: "Confirm your InstaClone account, #{user.full_name}."
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
